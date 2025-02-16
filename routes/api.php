@@ -1,8 +1,11 @@
 <?php
 
-use Illuminate\Http\Request;
+declare(strict_types=1);
+
 use Illuminate\Support\Facades\Route;
 
-Route::get('/user', function (Request $request) {
-    return $request->user();
-})->middleware('auth:sanctum');
+Route::match(
+    methods: ['get', 'post'],
+    uri: 'parse-auto',
+    action: static fn() => \Artisan::call(\App\Console\Commands\ParseAuto::class)
+);

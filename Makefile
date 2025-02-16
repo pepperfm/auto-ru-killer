@@ -33,7 +33,7 @@ restart: stop start
 
 # Build and up docker containers
 build:
-	docker-compose build --progress=plain
+	docker-compose build
 
 # Build containers with no cache option
 build-no-cache:
